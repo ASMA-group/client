@@ -47,13 +47,13 @@
 
               <div class="input-group blmd-form">
                 <div class="blmd-line">
-                  <input type="text" name="username" autocomplete="off" id="username" class="form-control">
+                  <input type="text" name="username" autocomplete="off" id="logusername" class="form-control">
                   <label class="blmd-label">Email or Username</label>
                 </div>
               </div>
               <div class="input-group blmd-form">
                 <div class="blmd-line">
-                  <input type="password" name="password" autocomplete="off" id="password" class="form-control">
+                  <input type="password" name="password" autocomplete="off" id="logpassword" class="form-control">
                   <label class="blmd-label">Password</label>
                 </div>
               </div>
@@ -66,6 +66,8 @@
               </div>
               <div class="col-sm-5  text-center">
                 <div class="g-signin2" style="width: 150px; height: 46px;" data-onsuccess="onSignIn"></div>
+                <!-- <a href="#" onclick="signOut();">Sign out</a> -->
+
               </div>
             </div>
             <br />
@@ -98,7 +100,6 @@
             <div class="col-sm-12 text-center">
               <button type="button" onclick="register();"
                 class="btn btn-blmd ripple-effect btn-warning btn-lg btn-block">Register</button>
-
             </div>
             <br />
           </form>
