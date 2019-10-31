@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-<<<<<<< HEAD
 
 <head>
   <!-- Required meta tags -->
@@ -12,18 +11,18 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="./style/loginStyle.css">
   <link rel="stylesheet" href="./script/login.js">
-
-
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
-
+  <link rel="stylesheet" href="style/chat.css">
+  <link rel="stylesheet" href="style/search.css">
   <title>Hello, world!</title>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 </head>
 
-<body style="background-color: #1e6959;">
+<body>
   <div id="beforeLogin">
 
     <div class="col-md-5 col-md-offset-3 col-xs-12" style="margin-left: 370px; ">
@@ -82,19 +81,19 @@
               <div class="input-group blmd-form">
                 <div class="blmd-line">
                   <input type="text" name="name" autocomplete="off" id="name" class="form-control">
-                  <label class="blmd-label">Name</label>
+                  <label class="blmd-label" style="color: aliceblue;">Name</label>
                 </div>
               </div>
               <div class="input-group blmd-form">
                 <div class="blmd-line">
                   <input type="text" name="username" autocomplete="off" id="username" class="form-control">
-                  <label class="blmd-label">Email</label>
+                  <label class="blmd-label" style="color: aliceblue;">Email</label>
                 </div>
               </div>
               <div class="input-group blmd-form">
                 <div class="blmd-line">
                   <input type="password" name="password" autocomplete="off" id="password" class="form-control">
-                  <label class="blmd-label">Password</label>
+                  <label class="blmd-label" style="color: aliceblue;">Password</label>
                 </div>
               </div>
 
@@ -111,12 +110,43 @@
     </div>
   </div>
 
+
+  <div id="afterLogin">
+    <div id="find">
+      <div>
+        <button class="btn bg-light find-button" onclick="findMatch(event)">Who is chatting with You ?</button>
+      </div>
+    </div>
+    <div id="matchUser">
+
+    </div>
+    <div id="love-calculator"></div>
+    <div class="chat">
+      <div class="chat-title">
+        <h1>Sigit Ari Prasetyo</h1>
+        <h2>Kesepian</h2>
+        <figure class="avatar">
+          <img src="https://avatars2.githubusercontent.com/u/51522276?s=460&v=4" /></figure>
+      </div>
+      <div class="messages">
+        <div class="messages-content"
+          style="overflow: scroll; height: 100%; overflow-x: hidden; scrollbar-color: #072621 #0b302a;"></div>
+      </div>
+      <div class="message-box">
+        <textarea type="text" class="message-input" placeholder="Type message..." id="text"></textarea>
+        <button type="submit" class="message-submit" onclick="send(event)">Send</button>
+      </div>
+
+    </div>
   </div>
+
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <!-- <script src="chat.js"></script> -->
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script src="./script/login.js"></script>
-  <script src="./script/main.js"></script>
+  <script src="script/search.js"></script>
+  <script src="main.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
   </script>
@@ -125,57 +155,4 @@
   </script>
 </body>
 
-=======
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style/chat.css">
-    <link rel="stylesheet" href="style/search.css">
-    <title>Hello, world!</title>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-  </head>
-  <body>
-    <div id="afterLogin">
-        <div id="find">
-            <div>
-                <button class="btn bg-light find-button" onclick="findMatch(event)">Who is chatting with You ?</button>
-            </div>
-        </div>
-        <div id="matchUser">
-
-        </div>
-        <div id="love-calculator"></div>
-        <div class="chat">
-                <div class="chat-title">
-                    <h1>Sigit Ari Prasetyo</h1>
-                    <h2>Kesepian</h2>
-                    <figure class="avatar">
-                    <img src="https://avatars2.githubusercontent.com/u/51522276?s=460&v=4" /></figure>
-                </div>
-                <div class="messages">
-                    <div class="messages-content" style="overflow: scroll; height: 100%; overflow-x: hidden; scrollbar-color: #072621 #0b302a;"></div>
-                </div>
-                <div class="message-box">
-                    <textarea type="text" class="message-input" placeholder="Type message..." id="text"></textarea>
-                    <button type="submit" class="message-submit" onclick="send(event)">Send</button>
-                </div>
-                
-        </div>
-    </div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <!-- <script src="chat.js"></script> -->
-    <script src="script/search.js"></script>
-    <script src="main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
->>>>>>> connect client with server
 </html>
