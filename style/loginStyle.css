@@ -37,7 +37,7 @@ body {
     right: 50%;
     top: -45px;
     margin-right: -32px;
-    background: #ffc066;
+    background: #1e6959;
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
     -moz-transform: rotate(45deg);
@@ -72,24 +72,24 @@ body {
 }
 
 .blmd-wrapp .blmd-continer form#login-form>h1 {
-    border-left: 5px solid #26a69a;
+    border-left: 5px solid #1e6959;
 }
 
 .blmd-wrapp .blmd-continer form#Register-form>h1 {
-    border-left: 5px solid #ffc066;
+    border-left: 5px solid #1e6959;
     color: #ffffff;
 }
 
 .blmd-wrapp .blmd-continer form#Register-form .blmd-form .blmd-line:after {
-    background: #ffc066;
+    background: #1e6959;
 }
 
 .blmd-wrapp .blmd-continer form#Register-form .blmd-form .form-control {
-    color: #ffffff;
+    color: #2e353b;
 }
 
 .blmd-wrapp .blmd-continer form#Register-form .blmd-form .blmd-label {
-    color: #ffffff;
+    color: #2e353b;
 }
 
 .blmd-wrapp .blmd-continer form#Register-form.animate {
@@ -199,23 +199,23 @@ body {
 }
 
 .btn-blmd.btn.btn-success {
-    background: #26a69a;
+    background: #1e6959;
     color: #ffffff;
 }
 
 .btn-blmd.btn.btn-success:hover,
 .btn-blmd.btn.btn-success:focus {
-    background: #219187;
+    background: #1e6959;
 }
 
 .btn-blmd.btn.btn-warning {
-    background: #ffc066;
+    background: #1e6959;
     color: #ffffff;
 }
 
 .btn-blmd.btn.btn-warning:hover,
 .btn-blmd.btn.btn-warning:focus {
-    background: #ffb54c;
+    background: #1e6959;
 }
 
 .btn-blmd.btn.btn-danger {
@@ -345,7 +345,7 @@ body {
     -ms-transform: scale(0);
     -o-transform: scale(0);
     transform: scale(0);
-    background: #26a69a;
+    background: #1e6959;
     opacity: 1;
 }
 
