@@ -1,24 +1,121 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="google-signin-client_id"
+    content="277321396814-v311nelcoj0t3a6l5r65inaqmj7fj8ts.apps.googleusercontent.com">
 
-    <title>Hello, world!</title>
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="./style/loginStyle.css">
+  <link rel="stylesheet" href="./script/login.js">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+  <title>Hello, world!</title>
+</head>
+
+<body>
+  <div id="beforeLogin">
+
+    <div class="col-md-5 col-md-offset-3 col-xs-12" style="margin-left: 370px;">
+      <!-- @ Start login box wrapper -->
+      <div class="blmd-wrapp">
+        <div class="blmd-color-conatiner ripple-effect-All"></div>
+        <div class="blmd-header-wrapp ">
+          <div class="blmd-switches">
+            <button class="btn btn-circle btn-lg btn-blmd ripple-effect btn-success blmd-switch-button">
+              <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="#fff" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+              </svg>
+            </button>
+          </div>
+
+        </div>
+        <div class="blmd-continer">
+          <!-- @ Login form container -->
+          <form action="post" method="POST" class="clearfix" id="login-form">
+            <h1>Login Page</h1>
+            <div class="col-md-12">
+
+              <div class="input-group blmd-form">
+                <div class="blmd-line">
+                  <input type="text" name="username" autocomplete="off" id="username" class="form-control">
+                  <label class="blmd-label">Email or Username</label>
+                </div>
+              </div>
+              <div class="input-group blmd-form">
+                <div class="blmd-line">
+                  <input type="password" name="password" autocomplete="off" id="password" class="form-control">
+                  <label class="blmd-label">Password</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+
+              <div class="col-sm-5 text-center">
+                <button type="button" onclick="login();"
+                  class="btn btn-blmd ripple-effect btn-success btn-lg btn-block">Login</button>
+              </div>
+              <div class="col-sm-5  text-center">
+                <div class="g-signin2" style="width: 150px; height: 46px;" data-onsuccess="onSignIn"></div>
+              </div>
+            </div>
+            <br />
+          </form>
+          <!-- @ Login form container -->
+          <form action="post" method="POST" class="clearfix form-hidden" id="Register-form">
+            <h1>Register Page</h1>
+            <div class="col-md-12">
+
+              <div class="input-group blmd-form">
+                <div class="blmd-line">
+                  <input type="text" name="username" autocomplete="off" id="username" class="form-control">
+                  <label class="blmd-label">Email or Username</label>
+                </div>
+              </div>
+              <div class="input-group blmd-form">
+                <div class="blmd-line">
+                  <input type="password" name="password" autocomplete="off" id="password" class="form-control">
+                  <label class="blmd-label">Password</label>
+                </div>
+              </div>
+              <div class="input-group blmd-form">
+                <div class="blmd-line">
+                  <input type="password" name="rePassword" autocomplete="off" id="password" class="form-control">
+                  <label class="blmd-label">Repeat Password</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 text-center">
+              <button type="button" onclick="register();"
+                class="btn btn-blmd ripple-effect btn-warning btn-lg btn-block">Register</button>
+
+            </div>
+            <br />
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script src="login.js"></script>
+  <script src="main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+</body>
+
 </html>
