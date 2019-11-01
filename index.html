@@ -18,11 +18,20 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style/chat.css">
   <link rel="stylesheet" href="style/search.css">
-  <title>Hello, world!</title>
+  <title>❤️ Kesepian</title>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 </head>
 
 <body>
+    <div class="bg_heart">
+        <div id="find">
+            <div class="find-button">
+              <button class="btn mt-5 ml-5" onclick="findMatch(event)" style="background-color: #ff5183; color: white;">Who is chatting with You ? </button>
+              <img src="https://tubelife.org/wp-content/uploads/2019/08/Love-gif.gif" alt="" style="width: 30px; margin-top: 50px;">
+              
+            </div>
+          </div>
+    
   <div id="beforeLogin">
 
     <div class="col-md-5 col-md-offset-3 col-xs-12" style="margin-left: 370px; ">
@@ -112,40 +121,39 @@
 
 
   <div id="afterLogin">
-    <div id="find">
-      <div>
-        <button class="btn bg-light find-button" onclick="findMatch(event)">Who is chatting with You ?</button>
-      </div>
-    </div>
+    
     <div id="matchUser">
 
     </div>
     <div id="love-calculator"></div>
+    
     <div class="chat">
+      
+        <button onclick="signOut()" class="btn btn-out" style="float: right;"><img src="http://pngimg.com/uploads/love/love_PNG85.png" alt="" width="30px;"> Signout</button>
       <div class="chat-title">
-        <h1>Sigit Ari Prasetyo</h1>
+        <div class="user-login-name"></div>
+        
         <h2>Kesepian</h2>
-        <figure class="avatar">
-          <img src="https://avatars2.githubusercontent.com/u/51522276?s=460&v=4" /></figure>
+        
+        <figure class="avatar"></figure>
       </div>
       <div class="messages">
         <div class="messages-content"
-          style="overflow: scroll; height: 100%; overflow-x: hidden; scrollbar-color: #072621 #0b302a;"></div>
+          style="overflow: scroll; height: 100%; overflow-x: hidden; scrollbar-color: #072621 #fff;"></div>
       </div>
       <div class="message-box">
-        <textarea type="text" class="message-input" placeholder="Type message..." id="text"></textarea>
+        <textarea type="text" class="message-input" placeholder="Type message..." id="text-msg"></textarea>
         <button type="submit" class="message-submit" onclick="send(event)">Send</button>
       </div>
 
     </div>
   </div>
-
+</div>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <!-- <script src="chat.js"></script> -->
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script src="./script/login.js"></script>
-  <script src="script/search.js"></script>
   <script src="main.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">

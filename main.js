@@ -1,5 +1,6 @@
 let baseUrl = 'http://localhost:3000'
 let secondName
+let chat_txt
 $(document).ready(function () {
   auth();
   // updateScrollbar()
@@ -9,16 +10,26 @@ function auth() {
   if (localStorage.getItem('token')) {
     $('#afterLogin').show()
     $("#beforeLogin").hide();
+    $('.user-login-name').empty()
+    $('.user-login-name').append(`<h1>${localStorage.getItem('username')}</h1>`)
+    $('.avatar').append(`<img src="https://api.adorable.io/avatars/285/${localStorage.getItem('username')}" />`)
+    $('.find-button').show()
   } else {
     $('#afterLogin').hide();
     $("#beforeLogin").show();
+    $('.find-button').hide()
   }
 }
 
 function findMatch(event) {
   $('.find-button').hide()
   $('#matchUser').show()
-  Swal.showLoading()
+  Swal.fire({
+    title: 'finding your real love',
+    onOpen: ()=>{
+      Swal.showLoading()
+    }
+  })
   let randomNum = Math.floor(Math.random() * Math.floor(2))
   let gender
   if (randomNum === 0) {
@@ -46,7 +57,11 @@ function findMatch(event) {
                 `)
       })
       .fail(err => {
-        console.log(err, 'ini err')
+        Swal.fire({
+          type: 'error',
+          title: 'Oops...',
+          text: err.responseJSON.message,
+        })
       })
   })
 }
@@ -61,7 +76,6 @@ function loveCalculator(event) {
     })
     .done(data => {
       Swal.close()
-      console.log(data)
       $('#matchUser').hide()
       $('#love-calculator').append(`
             <div class="mx-auto user-match">
@@ -103,22 +117,22 @@ function chatAgain(event) {
 }
 
 function send(event) {
+  chat_txt = $('#text-msg').val()
   event.preventDefault()
   $('.messages-content').append(`
         <div class="message message-personal new msg-user">
-        ${$('#text').val()}
+        ${chat_txt}
         </div>
     `)
-  $('#text').val('')
+    $('#text-msg').val('')
   $.ajax({
       url: baseUrl + '/apis/chat',
       method: 'POST',
       data: {
-        text: $('#text').val()
+        text: chat_txt
       }
     })
-    .done(data => {
-      console.log('masukkk nih', data)
+    .done(data => {      
       $('.messages-content').append(`
                 <div class="message new">
                 ${data.atext}
@@ -127,7 +141,11 @@ function send(event) {
 
     })
     .fail(err => {
-      console.log(err)
+      Swal.fire({
+        type: 'error',
+        title: 'Oops...',
+        text: err.responseJSON.message,
+      })
     })
 
 }
@@ -146,17 +164,12 @@ function login() {
   }).done((result) => {
     localStorage.setItem("username", result.username);
     localStorage.setItem("token", result.token);
-    Swal.fire({
-      type: 'success',
-      title: 'Success',
-      text: 'Login Successfully',
-    })
     auth();
   }).fail((err) => {
     Swal.fire({
       type: 'error',
       title: 'Oops...',
-      text: 'Something went wrong!',
+      text: err.responseJSON.message,
     })
   })
 }
@@ -175,8 +188,6 @@ function register() {
       password
     }
   }).done((result) => {
-    localStorage.setItem("username", result.username);
-    localStorage.setItem("token", result.token);
     Swal.fire({
       type: 'success',
       title: 'Success',
@@ -184,17 +195,17 @@ function register() {
     })
     auth();
   }).fail((err) => {
+
     Swal.fire({
       type: 'error',
       title: 'Oops...',
-      text: 'Something went wrong!',
+      text: err.responseJSON.message,
     })
   })
 }
 
 function onSignIn(googleUser) {
   let id_token = googleUser.getAuthResponse().id_token;
-  console.log(id_token)
   $.ajax({
     method: "post",
     url: "http://localhost:3000/user/logingoogle",
@@ -203,28 +214,37 @@ function onSignIn(googleUser) {
     }
   }).done((result) => {
     localStorage.setItem("token", result.token);
-    localStorage.setItem("username", result.name);
-    Swal.fire({
-      type: 'success',
-      title: 'Success',
-      text: 'Login Successfully',
-    })
+    localStorage.setItem("username", result.username);
     auth();
   }).fail((err) => {
     Swal.fire({
       type: 'error',
       title: 'Oops...',
-      text: 'Something went wrong!',
+      text: err.responseJSON.message,
     })
   })
 
 }
 
 function signOut() {
-  var auth2 = gapi.auth2.getAuthInstance();
-  auth2.signOut().then(function () {
-    console.log('User signed out.');
-    localStorage.removeItem("token");
-    auth();
-  });
+  Swal.fire({
+    title: 'Are you sure to signout ?',
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes'
+  }).then((result) => {
+    if (result.value) {
+      var auth2 = gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function () {
+        localStorage.removeItem("token");
+        localStorage.removeItem("username")
+        auth();
+      });
+      $('#logusername').val('')
+      $('#logpassword').val('')
+    }
+  })
+
 }
