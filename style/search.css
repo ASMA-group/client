@@ -3,12 +3,7 @@
     background: #212129;
  }
  
- .search-wrapper {
-     /* position: absolute; */
-     /* transform: translate(-50%, -50%); */
-     /* top:50%;
-     left:50%; */
- }
+
 
  .search-wrapper .input-holder {    
      height: 70px;
