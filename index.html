@@ -31,9 +31,13 @@
     <div class="bg_heart">
         <div id="find">
             <div class="find-button">
-              <button class="btn mt-5 ml-5" onclick="findMatch(event)" style="background-color: #ff5183; color: white;">Who is chatting with You ? </button>
-              <img src="https://tubelife.org/wp-content/uploads/2019/08/Love-gif.gif" alt="" style="width: 30px; margin-top: 50px;">
-              
+              <!-- Design inspiration on dribbble https://dribbble.com/shots/2514476--083-Button -->
+              <button class="love" onclick="findMatch(event)">
+                <span class="icon-container">
+                  <img src="https://tubelife.org/wp-content/uploads/2019/08/Love-gif.gif" alt="" style="width: 30px;">
+                </span>
+                <span class="text">Send Some Love</span>
+              </button>
             </div>
           </div>
     
@@ -147,13 +151,20 @@
           style="overflow: scroll; height: 100%; overflow-x: hidden; scrollbar-color: #072621 #fff;"></div>
       </div>
       <div class="message-box">
-        <textarea type="text" class="message-input" placeholder="Type message..." id="text-msg"></textarea>
-        <button type="submit" class="message-submit" onclick="send(event)">Send</button>
+        <!-- <textarea type="text" class="message-input" placeholder="Type message..." id="text-msg"></textarea> -->
+        <form>
+            <input type="text"class="message-input" placeholder="Type message..." id="text-msg">
+            <button type="submit" class="message-submit" onclick="send(event)">Send</button>
+        </form>
       </div>
 
     </div>
   </div>
 </div>
+
+
+  
+
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <!-- <script src="chat.js"></script> -->
