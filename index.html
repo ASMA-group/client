@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="google-signin-client_id"
+    content="277321396814-v311nelcoj0t3a6l5r65inaqmj7fj8ts.apps.googleusercontent.com">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="./style/loginStyle.css">
+  <link rel="stylesheet" href="./script/login.js">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style/chat.css">
+  <link rel="stylesheet" href="style/search.css">
+  <title>❤️ Kesepian</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+</head>
+
+<body>
+  <audio id="myAudio" loop>
+    <source src="./src/Naruto-Sadness-and-Sorrow-Violin-Cover-Taylor-Davis_mF3DCa4TbD0.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+  
+    <div class="bg_heart">
+        <div id="find">
+            <div class="find-button">
+              <!-- Design inspiration on dribbble https://dribbble.com/shots/2514476--083-Button -->
+              <button class="love" onclick="findMatch(event)">
+                <span class="icon-container">
+                  <img src="https://tubelife.org/wp-content/uploads/2019/08/Love-gif.gif" alt="" style="width: 30px;">
+                </span>
+                <span class="text">Send Some Love</span>
+              </button>
+            </div>
+          </div>
+    
+  <div id="beforeLogin">
+
+    <div class="col-md-5 col-md-offset-3 col-xs-12" style="margin-left: 370px; ">
+      <!-- @ Start login box wrapper -->
+      <div class="blmd-wrapp">
+        <div class="blmd-color-conatiner ripple-effect-All"></div>
+        <div class="blmd-header-wrapp ">
+          <div class="blmd-switches">
+            <button class="btn btn-circle btn-lg btn-blmd ripple-effect btn-success blmd-switch-button">
+              <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="#fff" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+              </svg>
+            </button>
+          </div>
+
+        </div>
+        <div class="blmd-continer">
+          <!-- @ Login form container -->
+          <form action=" post" method="POST" class="clearfix" id="login-form" style="border-radius: 80px;">
+            <h1>Login Page</h1>
+            <div class="col-md-12">
+
+              <div class="input-group blmd-form">
+                <div class="blmd-line">
+                  <input type="text" name="username" autocomplete="off" id="logusername" class="form-control">
+                  <label class="blmd-label">Email or Username</label>
+                </div>
+              </div>
+              <div class="input-group blmd-form">
+                <div class="blmd-line">
+                  <input type="password" name="password" autocomplete="off" id="logpassword" class="form-control">
+                  <label class="blmd-label">Password</label>
+                </div>
+              </div>
+            </div>
+            <div class="row" style="justify-content: center;">
+
+              <div class="col-sm-5 text-center">
+                <button type="button" onclick="login();"
+                  class="btn btn-blmd ripple-effect btn-success btn-lg btn-block">Login</button>
+              </div>
+              <div class="col-sm-5  text-center">
+                <div class="g-signin2" style="width: 150px; height: 46px; border-radius: 20px ;"
+                  data-onsuccess="onSignIn"></div>
+                <!-- <a href="#" onclick="signOut();">Sign out</a> -->
+
+              </div>
+            </div>
+            <br />
+          </form>
+          <!-- @ Login form container -->
+          <form action="post" method="POST" class="clearfix form-hidden" id="Register-form">
+            <h1>Register Page</h1>
+            <div class="col-md-12 text-black">
+
+              <div class="input-group blmd-form">
+                <div class="blmd-line">
+                  <input type="text" name="name" autocomplete="off" id="name" class="form-control">
+                  <label class="blmd-label" style="color: aliceblue;">Name</label>
+                </div>
+              </div>
+              <div class="input-group blmd-form">
+                <div class="blmd-line">
+                  <input type="text" name="username" autocomplete="off" id="username" class="form-control">
+                  <label class="blmd-label" style="color: aliceblue;">Email</label>
+                </div>
+              </div>
+              <div class="input-group blmd-form">
+                <div class="blmd-line">
+                  <input type="password" name="password" autocomplete="off" id="password" class="form-control">
+                  <label class="blmd-label" style="color: aliceblue;">Password</label>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-sm-12 text-center">
+              <button type="button" onclick="register();"
+                class="btn btn-blmd ripple-effect btn-warning btn-lg btn-block">Register</button>
+            </div>
+            <br />
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div id="afterLogin">
+    
+    <div id="matchUser">
+
+    </div>
+    <div id="love-calculator"></div>
+    
+    <div class="chat">
+      
+        <button onclick="signOut()" class="btn btn-out" style="float: right;"><img src="http://pngimg.com/uploads/love/love_PNG85.png" alt="" width="30px;"> Signout</button>
+      <div class="chat-title">
+        <div class="user-login-name"></div>
+        
+        <h2>Kesepian</h2>
+        
+        <figure class="avatar"></figure>
+      </div>
+      <div class="messages">
+        <div class="messages-content"
+          style="overflow: scroll; height: 100%; overflow-x: hidden; scrollbar-color: #072621 #fff;"></div>
+      </div>
+      <div class="message-box">
+        <!-- <textarea type="text" class="message-input" placeholder="Type message..." id="text-msg"></textarea> -->
+        <form>
+            <input type="text"class="message-input" placeholder="Type message..." id="text-msg">
+            <button type="submit" class="message-submit" onclick="send(event)">Send</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+  
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <!-- <script src="chat.js"></script> -->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script src="./script/login.js"></script>
+  <script src="main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
