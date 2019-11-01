@@ -3,6 +3,8 @@ let secondName
 let chat_txt
 $(document).ready(function () {
   auth();
+  var x = document.getElementById("myAudio");
+  x.play();
   // updateScrollbar()
 })
 
