@@ -5,7 +5,6 @@ $(document).ready(function () {
   var x = document.getElementById("myAudio");
   x.play();
   auth();
-  // updateScrollbar()
 })
 
 function auth() {
