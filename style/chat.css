@@ -1,18 +1,82 @@
 /*-------------------- Mixins --------------------*/
 /*-------------------- Body --------------------*/
+html,body{
+    height:100%
+  }
+  
+  .bg_heart {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden
+   }
+  
+  .heart {
+      position: absolute;
+      top: -50%;
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -m-transform: rotate(-45deg);
+      transform: rotate(-45deg)
+   }
+  
+  .heart:before {
+      position: absolute;
+      top: -50%;
+      left: 0;
+      display: block;
+      content: "";
+      width: 100%;
+      height: 100%;
+      background: inherit;
+      border-radius: 100%;
+  }
+  
+  .heart:after {
+      position: absolute;
+      top: 0;
+      right: -50%;
+      display: block;
+      content: "";
+      width: 100%;
+      height: 100%;
+      background: inherit;
+      border-radius: 100%;
+  }
+  
+  @-webkit-keyframes love {
+    0%{top:110%}
+  }
+  @-moz-keyframes love {
+    0%{top:110%}
+  }
+  @-ms-keyframes love {
+    0%{top:110%}
+  }
+  @keyframes love {
+    0%{top:110%}
+  }
+/*  */
 *, *::before, *::after {
     box-sizing: border-box;
 }
 html, body {
     height: 100%;
 }
-body {
+/* body {
     background: linear-gradient(135deg, #044f48, #2a7561);
     background-size: cover;
     font-family: 'Open Sans', sans-serif;
     font-size: 12px;
     line-height: 1.3;
     overflow: hidden;
+} */
+#find {
+    position: relative;
+    top: 235px;
+    left: 25px;
 }
 .bg {
     width: 100%;
@@ -47,7 +111,7 @@ body {
     flex: 0 1 45px;
     position: relative;
     z-index: 2;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.6);
     color: #fff;
     text-transform: uppercase;
     text-align: left;
@@ -84,7 +148,7 @@ body {
 /*-------------------- Messages --------------------*/
 .messages {
     flex: 1 1 auto;
-    color: rgba(255, 255, 255, .5);
+    color: rgba(255, 255, 255, .8);
     overflow: hidden;
     position: relative;
     width: 100%;
@@ -95,13 +159,14 @@ body {
     left: 0;
     height: 101%;
     width: 100%;
+    background-color: #fff;
 }
 .messages .message {
     clear: both;
     float: left;
     padding: 6px 10px 7px;
     border-radius: 10px 10px 10px 0;
-    background: rgba(0, 0, 0, .3);
+    background: rgba(0, 0, 0, .8);
     margin: 8px 0;
     font-size: 11px;
     line-height: 1.4;
@@ -113,13 +178,13 @@ body {
     position: absolute;
     bottom: -15px;
     font-size: 9px;
-    color: rgba(255, 255, 255, .3);
+    color: rgba(255, 255, 255, .8);
 }
 .messages .message::before {
     content: '';
     position: absolute;
     bottom: -6px;
-    border-top: 6px solid rgba(0, 0, 0, .3);
+    border-top: 6px solid rgba(0, 0, 0, .8);
     left: 0;
     border-right: 7px solid transparent;
 }
@@ -224,7 +289,7 @@ body {
 .message-box {
     flex: 0 1 40px;
     width: 100%;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.8);
     padding: 10px;
     position: relative;
 }
@@ -333,4 +398,8 @@ body {
 .user-match p {
     font-size: 15px;
     margin-top: 15px;
+}
+
+.btn-out {
+    color: #fff !important;
 }
