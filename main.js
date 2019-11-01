@@ -2,6 +2,8 @@ let baseUrl = 'http://localhost:3000'
 let secondName
 let chat_txt
 $(document).ready(function () {
+  var x = document.getElementById("myAudio");
+  x.play();
   auth();
   // updateScrollbar()
 })
@@ -80,7 +82,7 @@ function loveCalculator(event) {
       $('#love-calculator').append(`
             <div class="mx-auto user-match">
                 <h1>${data.fname} ❤️ ${data.sname}</h1>
-                <p>${data.percentage}</p>
+                <h2>${data.percentage} %</h2>
                 <p>${data.result}</p>
                 <button class="btn bg-light find-button" onclick="chatAgain(event)">Chat Again</button>
             </div>
@@ -138,6 +140,7 @@ function send(event) {
                 ${data.atext}
                 </div>
             `)
+      $(".messages-content").animate({ scrollTop: $(".messages-content")[0].scrollHeight})
 
     })
     .fail(err => {
@@ -242,6 +245,7 @@ function signOut() {
         localStorage.removeItem("username")
         auth();
       });
+      $('.messages-content').empty()
       $('#logusername').val('')
       $('#logpassword').val('')
     }
